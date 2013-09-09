@@ -9,7 +9,13 @@ when you make a contexy , it will bind as Context menu and whenever user right c
 
 ## Installation
 
-Download the files and put them in your Bundles Directory
+You can install this bundle by running the following CLI command:
+
+```php
+php artisan bundle:install Contexy
+```
+or 
+You Can Download the files and put them in your Bundles Directory
 
 Add the following line to application/bundles.php
 
