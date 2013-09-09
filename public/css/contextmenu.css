@@ -1,0 +1,11 @@
+#contextmenu, #contextmenu ul {
+    background-color: transparent;
+    display: none;
+    font-size: 13.5px;
+    opacity: 0.89;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=89)";
+	filter: alpha(opacity=89);
+	-moz-opacity: 0.89;
+    position: absolute;
+    z-index: 100;
+}
