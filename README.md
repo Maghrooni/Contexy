@@ -1,7 +1,7 @@
 Contexy
 =======
 
-Contexy is a free laravel 3 bundle that helps you create and bind a context menu to your view very quickly and easily :)
+Contexy is a free laravel bundle that helps you create and bind a context menu to your view very quickly and easily :)
 
 
 it will use Jquery, Jquery-UI and Bootstrap for Styling ! 
