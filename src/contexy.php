@@ -23,7 +23,7 @@ class contexy {
         }
     }
 
-    public static function make($input = array(), $target = "_blank") {
+    public static function make($input = array()) {
         //set the config options ! 
         static::load_configs();
         //context menu start tag ! 
