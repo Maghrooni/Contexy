@@ -13,6 +13,12 @@ class contexy {
 
     public static $target;
     public static $icon;
+    public static $bindings;
+    public static $sortable;
+    public static $menuID;
+    public static $opacity;
+    public static $background;
+    public static $width;
     protected static $config;
 
     protected static function load_configs() {
@@ -23,14 +29,66 @@ class contexy {
         }
     }
 
-    public static function make($input = array()) {
+    private static function script($menuID, $bindings) {
+        $sortable = (static::$sortable) ? '.sortable({cursor: "move"}).disableSelection()' : '';
+        echo <<<THIS
+            <script type="text/javascript">
+            $(function() {
+                    $("#{$menuID}"){$sortable}.menu({ position: { my: "left top", at: "right-5 top+5", collision: 'flipfit' } });
+                    $({$bindings}).bind("contextmenu", function(e) {
+                        e.preventDefault();
+                        $('#{$menuID}').show().css({
+                            top: e.pageY + 'px',
+                            left: e.pageX + 'px'
+                        });
+                    });
+                        $(document).click(function() {
+                        $('#{$menuID}').hide();
+                    });
+            });
+            </script>
+THIS;
+    }
+
+    private static function style($menuID) {
+        $menuID = !is_null($menuID) ? $menuID : static::$menuID;
+        $background = static::$background;
+        $width = static::$width;
+        $opac = static::$opacity;
+        //IE Opacity Support
+        $opac_IE = is_numeric($opac) ? $opac * 100 : '';
+        $opacity = (isset($opac)) ? '
+                opacity: ' . $opac . ';
+                -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=' . $opac_IE . ')";
+                filter: alpha(opacity=' . $opac_IE . ');
+                -moz-opacity: ' . $opac . ';                    
+' : '';
+        echo <<<THIS
+                 <style>
+                #{$menuID}, #{$menuID} ul {
+                    width: {$width};
+                    background: {$background};
+                    display: none;
+                    font-size: 13.5px;
+                    {$opacity}
+                    position: absolute;
+                    z-index: 100;
+                }
+                </style>           
+THIS;
+    }
+
+    public static function make($input = array(), $menuID = Null, $bindings = Null) {
         //set the config options ! 
         static::load_configs();
-        //context menu start tag ! 
+        $menuID = !is_null($menuID) ? $menuID : static::$menuID;
+        $bindings = !is_null($bindings) ? $bindings : static::$bindings;
+        //context menu styles ! 
+        static::style($menuID);
+        //context menu script tag ! 
+        static::script($menuID, $bindings);
         echo <<<THIS
-        <div class="row">
-            <div class="span4">
-                <ul class='dropdown-menu' id='contextmenu'>
+                <ul class='dropdown-menu' id='{$menuID}'>
 THIS;
         foreach ($input as $name => $link) {
             //if menu item has submenu ! 
@@ -46,7 +104,7 @@ THIS;
             }
         }
         //end of the contextmenu tag ! 
-        echo "</div></div></ul>";
+        echo "</ul>";
     }
 
 // if it has submenu we make it submenu !  

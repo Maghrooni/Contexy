@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Context Menu for creating Right Click menus !
+ * Contexy
  *
  * @category   HTML/UI
  * @package    Contexy
@@ -9,7 +9,7 @@
  * @license    MIT License <http://www.opensource.org/licenses/mit>
  *
  */
-// Autoload Context Menu
+// Autoload Contexy
 Autoloader::map(
         array('contexy' => Bundle::path('contexy') . 'src' . DS . 'contexy.php')
 );
@@ -17,13 +17,6 @@ Autoloader::map(
 // Define main assets
 Asset::container('header')
         ->bundle('contexy')
-        ->add('bootstrap', 'css/bootstrap.min.css')
-        ->add('bootstrap-responsive', 'css/bootstrap-responsive.min.css')
-        ->add('contextmenu', 'css/contextmenu.css');
-
-Asset::container('footer')
-        ->bundle('contexy')
+        ->add('contextmenu', 'css/contextmenu.css')
         ->add('jquery', 'js/jquery.min.js')
-        ->add('jquery-ui', 'js/jquery-ui.js', 'jquery')
-        ->add('bootstrap-js', 'js/bootstrap.min.js', 'jquery')
-        ->add('contxtmenu', 'js/contextmenu.js', 'jquery');
+        ->add('jquery-ui', 'js/jquery-ui.js', 'jquery');
