@@ -38,12 +38,13 @@ Asset::container('header')->scripts();
 ```
 
 ##Features ! (Updated) 
--Menu with unlimited Submenu
--support icons for each item
--define target for each link
--bind as many as contexy menu to specific elements in your page as you want !
--new configs : width, opacity, sortable, Background
--cross browser
+
+- Menu with unlimited Submenu
+- support icons for each item
+- define target for each link
+- bind as many as contexy menu to specific elements in your page as you want !
+- new configs : width, opacity, sortable, Background, font size
+- cross browser
 
 ##Usage
 in your View files , you can add a Context menu as Simple as these examples ! 
@@ -88,8 +89,8 @@ contexy::make(array(
 ```
 
 #Menu with icons ! 
-	You can set any icons from bootstrap icon classes , or you can leave it as default icon ! 
-	if you prefer to not include any icons you can change the config file to 'icon'=>''
+You can set any icons from bootstrap icon classes , or you can leave it as default icon ! 
+if you prefer to not include any icons you can change the config file to 'icon'=>''
 	
 ```php
 contexy::make(array(
@@ -123,5 +124,16 @@ and third argument as $bindings , for example '".carousel,.users"' , pay attenti
 
 #Note
 -Do not Call Jquery Library Twice !(in case you already have it...)
+
+## Changelog
+
+### v1.01
+- Removed some unused css,js file
+- css and js code are now inline for more flexibility
+- added multi menu support ( You can have multi context menus )
+- added option -> make menu and bind it to specific elements in a page (you can bind a menu to many elements too ) 
+- added option to pass in context menu id
+- added option to pass in bindings ( example : document , example: '".class,#id"')
+- added new configs : Width of menu, Opacity, font size, Sortable, Background, menuID, bindings 
 
 [Visit my website][http://www.maghrooni.ir]
