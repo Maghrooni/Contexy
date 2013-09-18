@@ -121,10 +121,6 @@ and third argument as $bindings , for example '".carousel,.users"' , pay attenti
 	'login'=>URL::to_route('login'),
 	'My FB'=>'http://www.facebook.com/maghrooni'),'another_contexy','".navbar"');
 ```
-
-#Note
--Do not Call Jquery Library Twice !(in case you already have it...)
-
 ## Changelog
 
 ### v1.01
