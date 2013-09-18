@@ -3,7 +3,7 @@ Contexy
 
 Contexy is a free laravel bundle that helps you create and bind different context menus to elements you want in your view very quickly and easily :)
 
-#Now more flexible & Powerful !
+##Now more flexible & Powerful !
 
 it will use Jquery, Jquery-UI and Bootstrap for Styling ! 
 when you make a contexy or many of them, it will bind the Context menu to the bindings you specify and whenever user right clicks on those elements ,it will appear in the clicked area ! and then with a click it will disapear ! 
@@ -49,7 +49,7 @@ Asset::container('header')->scripts();
 ##Usage
 in your View files , you can add a Context menu as Simple as these examples ! 
 
-#Simple Menu 
+###Simple Menu 
 
 ```php
 contexy::make(array(
@@ -58,7 +58,7 @@ contexy::make(array(
 	'My FB'=>'http://www.facebook.com/maghrooni'));
 ```
 
-#Menu with Submenu
+###Menu with Submenu
 
 ```php
 contexy::make(array(
@@ -68,7 +68,7 @@ contexy::make(array(
 		'Register'=>URL::to_route('register'))
 	));
 ```
-#Menu with so many submenus ! 
+###Menu with so many submenus ! 
 
 ```php
 contexy::make(array(
@@ -88,7 +88,7 @@ contexy::make(array(
 	));
 ```
 
-#Menu with icons ! 
+###Menu with icons ! 
 You can set any icons from bootstrap icon classes , or you can leave it as default icon ! 
 if you prefer to not include any icons you can change the config file to 'icon'=>''
 	
@@ -107,7 +107,7 @@ contexy::make(array(
 	'My FB'=>'http://www.facebook.com/maghrooni'));
 ```
 
-#Multiple Menus
+###Multiple Menus
 Now You Can use Multiple Contexy on a Page ! and bind it on a Specific Element !
 Just Pass the second argument as $menuID for example contexy , will be used as id="#contexy"
 and third argument as $bindings , for example '".carousel,.users"' , pay attention to the  ' ".class,.class,#ID"  ' example...
