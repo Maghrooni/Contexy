@@ -109,7 +109,7 @@ contexy::make(array(
 
 ###Multiple Menus
 Now You Can use Multiple Contexy on a Page ! and bind it on a Specific Element !
-Just Pass the second argument as `$menuID` for example contexy , will be used as `id="#contexy"`
+Just Pass the second argument as `$menuID` for example contexy , will be used as `id="contexy"`
 and third argument as `$bindings` , for example `'".carousel,.users"'` , pay attention to the  `' ".class,.class,#ID"  '` example...
 ```php
  contexy::make(array(
