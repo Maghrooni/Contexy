@@ -1,7 +1,7 @@
 Contexy
 =======
 
-Contexy is a free laravel bundle that helps you create and bind different context menus to elements you want in your view very quickly and easily :)
+__Contexy__ is a laravel bundle that helps you create and bind different context menus to elements you want in your view very quickly and easily :)
 
 ##Now more flexible & Powerful !
 
@@ -18,7 +18,7 @@ php artisan bundle:install Contexy
 or 
 You Can Download the files and put them in your Bundles Directory
 
-Add the following line to application/bundles.php
+Add the following line to `application/bundles.php`
 
 ```php
 'contexy' => array('auto' => true),
@@ -90,7 +90,7 @@ contexy::make(array(
 
 ###Menu with icons ! 
 You can set any icons from bootstrap icon classes , or you can leave it as default icon ! 
-if you prefer to not include any icons you can change the config file to 'icon'=>''
+if you prefer to not include any icons you can change the config file to `'icon'=>''`
 	
 ```php
 contexy::make(array(
@@ -99,7 +99,7 @@ contexy::make(array(
 	'My FB'=>'http://www.facebook.com/maghrooni'));
 ```
 
-Specify the Target option or leave it ! Default is _blank
+Specify the Target option or leave it ! Default is `_blank`
 ```php
 contexy::make(array(
 	'home|icon:icon-lock|target:_self'=>URL::to_route('home'),
@@ -109,8 +109,8 @@ contexy::make(array(
 
 ###Multiple Menus
 Now You Can use Multiple Contexy on a Page ! and bind it on a Specific Element !
-Just Pass the second argument as $menuID for example contexy , will be used as id="#contexy"
-and third argument as $bindings , for example '".carousel,.users"' , pay attention to the  ' ".class,.class,#ID"  ' example...
+Just Pass the second argument as `$menuID` for example contexy , will be used as `id="#contexy"`
+and third argument as `$bindings` , for example `'".carousel,.users"'` , pay attention to the  `' ".class,.class,#ID"  '` example...
 ```php
  contexy::make(array(
 	'home'=>URL::to_route('home'),
@@ -129,7 +129,9 @@ and third argument as $bindings , for example '".carousel,.users"' , pay attenti
 - added multi menu support ( You can have multi context menus )
 - added option -> make menu and bind it to specific elements in a page (you can bind a menu to many elements too ) 
 - added option to pass in context menu id
-- added option to pass in bindings ( example : document , example: '".class,#id"')
-- added new configs : Width of menu, Opacity, font size, Sortable, Background, menuID, bindings 
+- added option to pass in bindings ( example : `document` , example: `'".class,#id"'`)
+- added new configs : `Width` of menu, `Opacity`, `font-size`, `Sortable`, `Background`, `menuID`, `bindings` 
 
-[Visit my website][http://www.maghrooni.ir]
+[Maghrooni]
+
+[Maghrooni]: http://www.maghrooni.ir
