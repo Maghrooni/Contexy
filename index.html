@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Contexy by Maghrooni</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Contexy</h1>
+        <h2>Contexy is a free laravel bundle that helps you create and bind different context menus to elements you want in your view very quickly and easily :)</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Maghrooni/Contexy/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/Maghrooni/Contexy/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/Maghrooni/Contexy" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="contexy" class="anchor" href="#contexy"><span class="octicon octicon-link"></span></a>Contexy</h1>
+
+<p><strong>Contexy</strong> is a laravel bundle that helps you create and bind different context menus to elements you want in your view very quickly and easily :)</p>
+
+<h2>
+<a name="now-more-flexible--powerful-" class="anchor" href="#now-more-flexible--powerful-"><span class="octicon octicon-link"></span></a>Now more flexible &amp; Powerful !</h2>
+
+<p>it will use Jquery, Jquery-UI and Bootstrap for Styling ! 
+when you make a contexy or many of them, it will bind the Context menu to the bindings you specify and whenever user right clicks on those elements ,it will appear in the clicked area ! and then with a click it will disapear ! </p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>You can install this bundle by running the following CLI command:</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">php</span> <span class="nx">artisan</span> <span class="nx">bundle</span><span class="o">:</span><span class="nx">install</span> <span class="nx">Contexy</span>
+</pre></div>
+
+<p>or 
+You Can Download the files and put them in your Bundles Directory</p>
+
+<p>Add the following line to <code>application/bundles.php</code></p>
+
+<div class="highlight highlight-php"><pre><span class="s1">'contexy'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'auto'</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">),</span>
+</pre></div>
+
+<p>Publish the bundle assets to your public folder.</p>
+
+<pre lang="shell"><code>php artisan bundle:publish
+</code></pre>
+
+<p>Add the following to your template's header view file to include the Jquery,Jquery UI and needed bootstrap classes</p>
+
+<div class="highlight highlight-php"><pre><span class="nx">Asset</span><span class="o">::</span><span class="na">container</span><span class="p">(</span><span class="s1">'header'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">styles</span><span class="p">();</span>
+<span class="nx">Asset</span><span class="o">::</span><span class="na">container</span><span class="p">(</span><span class="s1">'header'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">scripts</span><span class="p">();</span>
+</pre></div>
+
+<h2>
+<a name="features--updated" class="anchor" href="#features--updated"><span class="octicon octicon-link"></span></a>Features ! (Updated)</h2>
+
+<ul>
+<li>Menu with unlimited Submenu</li>
+<li>support icons for each item</li>
+<li>define target for each link</li>
+<li>bind as many as contexy menu to specific elements in your page as you want !</li>
+<li>new configs : width, opacity, sortable, Background, font size</li>
+<li>cross browser</li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>in your View files , you can add a Context menu as Simple as these examples ! </p>
+
+<h3>
+<a name="simple-menu" class="anchor" href="#simple-menu"><span class="octicon octicon-link"></span></a>Simple Menu</h3>
+
+<div class="highlight highlight-php"><pre><span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'home'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">),</span>
+    <span class="s1">'login'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'login'</span><span class="p">),</span>
+    <span class="s1">'My FB'</span><span class="o">=&gt;</span><span class="s1">'http://www.facebook.com/maghrooni'</span><span class="p">));</span>
+</pre></div>
+
+<h3>
+<a name="menu-with-submenu" class="anchor" href="#menu-with-submenu"><span class="octicon octicon-link"></span></a>Menu with Submenu</h3>
+
+<div class="highlight highlight-php"><pre><span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'home'</span><span class="o">=&gt;</span><span class="s1">'home_link'</span><span class="p">,</span>
+    <span class="s1">'user-menu'</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span>
+        <span class="s1">'login'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'login'</span><span class="p">),</span>
+        <span class="s1">'Register'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'register'</span><span class="p">))</span>
+    <span class="p">));</span>
+</pre></div>
+
+<h3>
+<a name="menu-with-so-many-submenus-" class="anchor" href="#menu-with-so-many-submenus-"><span class="octicon octicon-link"></span></a>Menu with so many submenus !</h3>
+
+<div class="highlight highlight-php"><pre><span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Home'</span> <span class="o">=&gt;</span> <span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">),</span>
+    <span class="s1">'Contact'</span> <span class="o">=&gt;</span> <span class="s1">'contact_us'</span><span class="p">,</span>
+    <span class="s1">'UserMenu&gt;'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'Login'</span> <span class="o">=&gt;</span> <span class="s1">'login'</span><span class="p">,</span>
+        <span class="s1">'Register'</span> <span class="o">=&gt;</span> <span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'register'</span><span class="p">),</span>
+        <span class="s1">'Groups'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'Photography'</span> <span class="o">=&gt;</span> <span class="s1">'Photography_Link'</span><span class="p">,</span>
+            <span class="s1">'Web Development'</span><span class="o">=&gt;</span><span class="s1">'Web_Link'</span><span class="p">,</span>
+            <span class="s1">'Design'</span><span class="o">=&gt;</span><span class="k">array</span><span class="p">(</span>
+                <span class="s1">'User Interface'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'ui'</span><span class="p">),</span>
+                <span class="s1">'Catalogue'</span><span class="o">=&gt;</span><span class="s1">'catalogue_link'</span>
+                <span class="p">)</span>
+        <span class="p">))</span>
+    <span class="p">));</span>
+</pre></div>
+
+<h3>
+<a name="menu-with-icons-" class="anchor" href="#menu-with-icons-"><span class="octicon octicon-link"></span></a>Menu with icons !</h3>
+
+<p>You can set any icons from bootstrap icon classes , or you can leave it as default icon ! 
+if you prefer to not include any icons you can change the config file to <code>'icon'=&gt;''</code></p>
+
+<div class="highlight highlight-php"><pre><span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'home|icon:icon-lock'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">),</span>
+    <span class="s1">'login|icon:icon-lock'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'login'</span><span class="p">),</span>
+    <span class="s1">'My FB'</span><span class="o">=&gt;</span><span class="s1">'http://www.facebook.com/maghrooni'</span><span class="p">));</span>
+</pre></div>
+
+<p>Specify the Target option or leave it ! Default is <code>_blank</code></p>
+
+<div class="highlight highlight-php"><pre><span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'home|icon:icon-lock|target:_self'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">),</span>
+    <span class="s1">'login|icon:icon-lock'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'login'</span><span class="p">),</span>
+    <span class="s1">'My FB'</span><span class="o">=&gt;</span><span class="s1">'http://www.facebook.com/maghrooni'</span><span class="p">));</span>
+</pre></div>
+
+<h3>
+<a name="multiple-menus" class="anchor" href="#multiple-menus"><span class="octicon octicon-link"></span></a>Multiple Menus</h3>
+
+<p>Now You Can use Multiple Contexy on a Page ! and bind it on a Specific Element !
+Just Pass the second argument as <code>$menuID</code> for example contexy , will be used as <code>id="contexy"</code>
+and third argument as <code>$bindings</code> , for example <code>'".carousel,.users"'</code> , pay attention to the  <code>' ".class,.class,#ID"  '</code> example...</p>
+
+<div class="highlight highlight-php"><pre> <span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'home'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">),</span>
+    <span class="s1">'login'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'login'</span><span class="p">),</span>
+    <span class="s1">'My FB'</span><span class="o">=&gt;</span><span class="s1">'http://www.facebook.com/maghrooni'</span><span class="p">),</span><span class="s1">'contexy'</span><span class="p">,</span><span class="s1">'".carousel,.user"'</span><span class="p">);</span>
+ <span class="nx">contexy</span><span class="o">::</span><span class="na">make</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'home'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'home'</span><span class="p">),</span>
+    <span class="s1">'login'</span><span class="o">=&gt;</span><span class="nx">URL</span><span class="o">::</span><span class="na">to_route</span><span class="p">(</span><span class="s1">'login'</span><span class="p">),</span>
+    <span class="s1">'My FB'</span><span class="o">=&gt;</span><span class="s1">'http://www.facebook.com/maghrooni'</span><span class="p">),</span><span class="s1">'another_contexy'</span><span class="p">,</span><span class="s1">'".navbar"'</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<h3>
+<a name="v101" class="anchor" href="#v101"><span class="octicon octicon-link"></span></a>v1.01</h3>
+
+<ul>
+<li>Removed some unused css,js file</li>
+<li>css and js code are now inline for more flexibility</li>
+<li>added multi menu support ( You can have multi context menus )</li>
+<li>added option -&gt; make menu and bind it to specific elements in a page (you can bind a menu to many elements too ) </li>
+<li>added option to pass in context menu id</li>
+<li>added option to pass in bindings ( example : <code>document</code> , example: <code>'".class,#id"'</code>)</li>
+<li>added new configs : <code>Width</code> of menu, <code>Opacity</code>, <code>font-size</code>, <code>Sortable</code>, <code>Background</code>, <code>menuID</code>, <code>bindings</code> </li>
+</ul><p><a href="http://www.maghrooni.ir">Maghrooni</a></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
